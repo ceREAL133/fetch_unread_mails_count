@@ -12,13 +12,9 @@ puppeteer.use(StealthPlugin());
 
 (async () => {
 	const browser = await puppeteer.launch({
-		headless: false,
-		args: [
-			'--no-sandbox',
-			'--disable-gpu',
-			'--enable-webgl',
-			'--window-size=800,800',
-		],
+		headless: true,
+		defaultViewport: null,
+		args: ['--no-sandbox', '--disable-setuid-sandbox'],
 	});
 
 	const page = await browser.newPage();
